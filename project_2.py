@@ -1,5 +1,7 @@
-print("Hello, World!")
-print("This is a simple Python script.")
-print("Let's play a number guessing game!")
-print("You will guess a number between 1 and 100.")
+import requests
+import re
+
+req = requests.get("http://ipconfig.kr")
+out_addr = re.search(r'IP Address : (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})', req.text).group(1)
+print(out_addr)
 
